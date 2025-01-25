@@ -50,7 +50,7 @@ public class Manager : MonoBehaviour
         ChangeLvl.SetActive(true);
         _isGameOver = true;
         LoadLevelCompletionStates();
-    }
+}
     private void Update()
     {
         print("low " + isLowLevelCompleted);
@@ -104,6 +104,7 @@ public class Manager : MonoBehaviour
 
     private IEnumerator MoveRing(GameObject ring) 
     {
+        SoundManager.Instance.RingUpSound();
         while (ring.transform.localPosition.y < 2.4f) 
         {
             ring.transform.Translate(new Vector3(3,0,0) * Time.deltaTime * 5f);
@@ -113,6 +114,7 @@ public class Manager : MonoBehaviour
     }
     private IEnumerator MoveRingOnTower(GameObject ring, GameObject tower)
     {
+        SoundManager.Instance.RingDownSound();
         targetRing = null;
         getRing = false;
         ring.transform.SetParent(GameObject.Find("PlatformYou").transform);

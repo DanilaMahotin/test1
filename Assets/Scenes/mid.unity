@@ -4539,6 +4539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: orange
       objectReference: {fileID: 0}
+    - target: {fileID: 4130351790578447111, guid: e2b11e1ff306f9748a8565d404715583, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4799595018551953630, guid: e2b11e1ff306f9748a8565d404715583, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.36
