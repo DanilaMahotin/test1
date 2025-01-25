@@ -104,7 +104,7 @@ public class Manager : MonoBehaviour
 
     private IEnumerator MoveRing(GameObject ring) 
     {
-        SoundManager.Instance.RingUpSound();
+        SoundManager.Instance.SoundPlay(1);
         while (ring.transform.localPosition.y < 2.4f) 
         {
             ring.transform.Translate(new Vector3(3,0,0) * Time.deltaTime * 5f);
@@ -114,7 +114,7 @@ public class Manager : MonoBehaviour
     }
     private IEnumerator MoveRingOnTower(GameObject ring, GameObject tower)
     {
-        SoundManager.Instance.RingDownSound();
+        SoundManager.Instance.SoundPlay(2);
         targetRing = null;
         getRing = false;
         ring.transform.SetParent(GameObject.Find("PlatformYou").transform);
@@ -191,20 +191,18 @@ public class Manager : MonoBehaviour
 
         if (allTrue)
         {
-            
+            SoundManager.Instance.SoundPlay(3);
             _uiManager.UpdateText(1);
             CheckLevelCompletion(SceneManager.GetActiveScene().name);
-            _uiManager.UpdateLvlCompliteText();
             GameObject[] allPanels = GameObject.FindObjectsOfType<GameObject>(true);
             GameObject GameOverPanel = System.Array.Find(allPanels, obj => obj.name == "GameOverPanel");
             GameOverPanel.SetActive(true);
         }
         else
         {
-           
+            SoundManager.Instance.SoundPlay(4);
             _uiManager.UpdateText(2);
             GameObject[] allPanels = GameObject.FindObjectsOfType<GameObject>(true);
-            _uiManager.UpdateLvlCompliteText();
             GameObject GameOverPanel = System.Array.Find(allPanels, obj => obj.name == "GameOverPanel");
             GameOverPanel.SetActive(true);
         }

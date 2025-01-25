@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     private AudioSource _audio;
     [SerializeField] private AudioClip _upClip;
     [SerializeField] private AudioClip _downClip;
+    [SerializeField] private AudioClip _winClip;
+    [SerializeField] private AudioClip _loseClip;
     private void Awake()
     {
         if (Instance == null)
@@ -25,15 +27,26 @@ public class SoundManager : MonoBehaviour
     {
         _audio = gameObject.AddComponent<AudioSource>();
     }
-
-    public void RingUpSound() 
+    public void SoundPlay(int i) 
     {
-        _audio.clip = _upClip;
-        _audio.Play();
-    }
-    public void RingDownSound()
-    {
-        _audio.clip = _downClip;
-        _audio.Play();
+        switch (i) 
+        {
+            case 1:
+                _audio.clip = _upClip;
+                _audio.Play();
+                break;
+            case 2:
+                _audio.clip = _downClip;
+                _audio.Play();
+                break;
+            case 3:
+                _audio.clip = _winClip;
+                _audio.Play();
+                break;
+            case 4:
+                _audio.clip = _loseClip;
+                _audio.Play();
+                break;
+        }
     }
 }
