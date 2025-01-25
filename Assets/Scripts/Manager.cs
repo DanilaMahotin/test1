@@ -53,9 +53,6 @@ public class Manager : MonoBehaviour
 }
     private void Update()
     {
-        print("low " + isLowLevelCompleted);
-        print("mid " + isMidLevelCompleted);
-        print("high " + isHighLevelCompleted);
         if (_uiManager == null) 
         {
             _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
@@ -152,6 +149,13 @@ public class Manager : MonoBehaviour
             case 3:
                 posRing = 0.4f;
                 break;
+            case 4:
+                posRing = 0.19f;
+                break;
+            case 5:
+                posRing = 0.045f;
+                break;
+
         }
 
 
@@ -165,7 +169,7 @@ public class Manager : MonoBehaviour
         {
             tower0.GetComponent<CylinderScript>().CheckRingUp();
         }
-        if (_progress == 0)
+        if (_progress <= 0)
             GameOverCheck();
         yield break;
     }
